@@ -1,0 +1,449 @@
+:root {
+  --main-color: #A0A0A0;
+  --placeholder-color: #e6e6e6;
+  --scrollbar-track-color: #f1f1f1;
+  --scrollbar-thumb-color: #888;
+  --scrollbar-thumb-hover-color: #555;
+  --demo-background-color: #3a3c4b;
+  --demo-text-color: #fb2323;
+  --chat-background-color: #aa4850;
+  --suggestion-background-color: #a74b06;
+  --suggestion-text-color: #e6e6e6;
+  --user-entered-text-background-color: #a81313;
+  --spinner-background-color: darkgray;
+  --suggestion-option-color: #9c27b0;
+  --suggestion-option-hover-color: #e6e6e6;
+  --link-url-border-color: #9c27b0;
+  --link-url-hover-background-color: #9c27b0;
+  --link-url-hover-color: #e6e6e6;
+}
+
+@font-face {
+  font-family: "Kobu Text Sans Serif";
+  src: url(../fonts/kobutextsansserif.woff2) format('woff2'),
+       url(../fonts/kobutextsansserif.woff) format('woff'),
+       url(../fonts/kobutextsansserif.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Fontawesome";
+  src: url(../fonts/fontawesome-webfont.woff2) format('woff2'),
+       url(../fonts/fontawesome-webfont.woff) format('woff'),
+       url(../fonts/fontawesome-webfont.ttf) format('truetype');
+}
+
+
+/* General */
+#assistant {
+  font-family: "Fontawesome", Helvetica, "Kobu Text Sans Seri";
+  font-size: 18px;
+  line-height: 1.42857143;
+  color: var(--main-color);
+}
+
+#assistant input::placeholder {
+  color: var(--placeholder-color);
+  font-family: "Fontawesome", Helvetica, "Kobu Text Sans Seri";
+  font-style: italic;
+}
+
+/* width */
+#assistant ::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+#assistant ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+
+/* Handle */
+#assistant ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+}
+
+/* Handle on hover */
+#assistant ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -khtml-user-drag: none;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#assistant .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#assistant .form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 17px;
+  outline: none;
+}
+
+/* Demo */
+#assistant .hd1 {
+  margin-top: 15vh;
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.fa-heart {
+  color: var(--demo-text-color);
+}
+/* Demo end */
+
+/* */
+#assistant .center .chatCont,
+#assistant .center .profile_div {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#assistant .left .chatCont,
+#assistant .left .profile_div {
+  left: 0;
+}
+
+#assistant .chatCont {
+  position: absolute;
+  width: 70%;
+  height: 84%;
+  bottom: 65px;
+  right: 0;
+  background: var(--demo-background-color);
+  border-top-left-radius: 12px;
+  z-index: 10000;
+  display: none;
+}
+
+
+/* Close button */
+#assistant .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  border: none ;
+  background-color: transparent; /* Set background color to transparent */
+}
+
+/* Style the "X" symbol */
+#assistant .close::before {
+  content: "\00D7";
+  font-size: 30px;
+  display: block; /* Ensure the "X" symbol is displayed as a block element */
+  line-height: 30px; /* Vertically center the "X" symbol */
+  text-align: center; /* Horizontally center the "X" symbol */
+  font-weight: bold; /* Make the "X" symbol bold */
+}
+
+
+
+#assistant .assistant_profile {
+  position: absolute;
+  right: 0;
+  margin-top: -45px;
+  text-align: center;
+  width: 400px;
+  display: none;
+  z-index: 1000;
+}
+
+#assistant .assistant_p_img {
+  width: 80px;
+  border-radius: 50%;
+  width: 80px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#assistant .chatForm {
+  position: absolute;
+  bottom: -65px;
+  right: 0;
+  margin-bottom: 0;
+  width: 100%;
+  display: none;
+}
+
+#assistant .assistant-txt,
+#assistant .assistant-txt:focus{
+  background-color: var(--user-entered-text-background-color);
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--placeholder-color);
+  
+  height: 66px;
+  border: 0;
+  border-top: 1px solid var(--user-entered-text-background-color);
+  border-left: 1px solid var(--user-entered-text-background-color);
+}
+
+
+#assistant .resultDiv .assistantResult{
+  background: var(--chat-background-color);
+  color: var(--placeholder-color);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 400;
+  float: left;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  margin-top: 5px;
+  position: relative;
+}
+
+#assistant .resultDiv .userEnteredText {
+  background: var(--user-entered-text-background-color);
+  float: right;
+  color: var(--placeholder-color);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 400;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  left: -6px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  word-wrap: break-word;
+  }
+
+  #assistant .resultDiv {
+    padding: 35px 20px 30px 20px;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  #assistant .assistantSuggestion {
+  background: var(--suggestion-background-color);
+  color: var(--placeholder-color);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 400;
+  float: left;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  margin-top: 5px;
+  position: relative;
+  font-style: italic;
+  cursor: pointer;
+}
+
+#assistant .profile_div {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  width: 240px;
+  cursor: pointer;
+}
+
+#assistant .img-profile {
+  width: 65px;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  background: var(--placeholder-color);
+  border-radius: 50px;
+  padding: 10px;
+}
+
+#assistant .col-hgt {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-right: 10px;
+}
+
+#assistant .chat-txt {
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 15px 15px;
+  border-radius: 50px;
+}
+
+/* Spinner start */
+#assistant .spinner {
+  width: 70px;
+  text-align: center;
+  display: none;
+  border-radius: 4px;
+  position: relative;
+  top: -7px;
+  left: 19px;
+  padding: 7px;
+  border-top-left-radius: 0;
+}
+
+#assistant .spinner > div {
+  width: 10px;
+  height: 10px;
+  background-color: var(--spinner-background-color);
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  margin-right: 5px;
+}
+
+#assistant .spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+#assistant .spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/* Spinner End */
+
+/* Suggestions */
+#assistant .suggestion {
+  background: #fff; 
+  color: var(--placeholder-color);
+  border-radius: 3px;
+  padding: 12px 0;
+  font-size: 17px;
+  font-weight: 400;
+  width: 400px;
+  float: left;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+  border-top-left-radius: 0;
+  margin-bottom: 20px;
+  width: 70%;
+  position: relative;
+}
+
+#assistant .suggestion .sugg-options {
+  display: inline-block;
+  color: var(--suggestion-option-color);
+  border: 1px solid var(--suggestion-option-color);
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#assistant .suggestion .sugg-options:hover {
+  color: var(--placeholder-color);
+  background-color: var(--suggestion-option-hover-color);
+  border: 1px solid var(--suggestion-option-hover-color);
+}
+
+#assistant .suggestion .sugg-title {
+  font-size: 17px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: var(--placeholder-color);
+}
+
+#assistant .suggestion span:last-child {
+  margin-bottom: 0;
+}
+/* Suggestions end */
+
+
+@media screen and (max-width: 500px) {
+  #assistant .chatCont,
+  #assistant .chatForm {
+    width: 100%;
+  }
+}
+
+.content-block {
+  display: block;
+  width: 100%;
+  float: right;
+}
+
+/*---------------- Link Tag--------------- */
+#assistant .flex{
+  width: 70%;
+  display: flex;
+  background: var(--placeholder-color);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0px 1px 0 rgb(0 0 0 / 16%), 0 0px 10px 0 rgb(0 0 0 / 12%);
+}
+
+#assistant .link-text{
+  width: 100%;
+}
+
+#assistant .link-url{
+  text-align: center;
+  margin: auto;
+  border-radius: 5px;
+  padding: 3px;
+  border: 1px solid var(--link-url-border-color);
+}
+
+#assistant .link-url:hover{
+    background-color: var(--link-url-hover-background-color);
+    border: 1px solid var(--link-url-border-color);
+}
+
+#assistant .link-url:hover a{
+  color: var(--link-url-hover-color);
+}
+
+#assistant .link-url>a{
+  color: var(--link-url-border-color);
+  font-size: 17px;
+    font-weight: 600;
+}
