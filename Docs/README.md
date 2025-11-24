@@ -1,4 +1,4 @@
-# KOBU AI ASSISTANT
+# (DRAFT) MonAgent - Child project KOBU AI ASSISTANT
 
 
 The project is a conversational AI chatbot designed to handle various tasks and interactions with users. It utilizes OpenAI's GPT-3.5 model to provide natural language understanding and generation capabilities.
